@@ -1,25 +1,32 @@
-body {
-  background: rgb(255, 173, 65);
+.todo {
+  height: 100vh;
+  background-color: #3475c0;
 }
 
-.todo-container {
-  background: rgb(41, 33, 33);
+.todo__container {
+  background: rgba( 138, 138, 206, 0.35 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 17.5px );
+  -webkit-backdrop-filter: blur( 17.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  height: 60vh;
   width: 40vw;
   margin: 10em auto;
   border-radius: 15px;
   padding: 20px 10px;
   color: white;
-  border: 3px solid rgb(36, 110, 194);
+  border: 3px solid rgb(36, 110, 194); 
 }
 
 .task {
   border: 1px solid white;
   border-radius: 5px;
-  padding: 0.5em;
-  margin: 0.5em;
+  padding: 10px;
+  margin: 10px;
 }
 
-.task button{
+.task Button{
   background: rgb(12, 124, 251);
   border-radius: 5px;
   margin: 0px 5px;
@@ -31,15 +38,19 @@ body {
 }
 
 .header {
+  font-weight: 500;
+
   margin: 0.5em;
   font-size: 2em;
   text-align: center;
 }
 
 .create-task input[type=text] {
+  text-transform: capitalize;
   margin: 2.5em 2em;
   width: 80%;
   outline: none;
   border: none;
+  border-radius: 20px;
   padding: 0.7em;
 }
