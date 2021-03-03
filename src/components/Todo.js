@@ -5,10 +5,33 @@ function Task({ task }) {
   return (
     <div
       className="task"
-      style={{ textDecortaion: task.completed ? "line-through" : "" }}
+      style={{ textDecoration: task.completed ? "line-through" : " " }}
     >
       {task.title}
     </div>
+  );
+}
+
+function CreateTask({ addTask }) {
+  const [value, setValue] = useState(" ");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!value) return;
+    addTask(value);
+    setValue("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        className="input"
+        value={value}
+        placeholder="Add a new to do"
+        onChange={(e) => setValue(e.target.value)}
+      />
+    </form>
   );
 }
 
@@ -27,13 +50,22 @@ function Todo() {
       completed: false,
     },
   ]);
+
+  const addTask = (title) => {
+    const newTasks = [...tasks, { title, completed: false }];
+    setTasks(newTasks);
+  };
+
   return (
-    <div className="todo__container">
+    <div className="todo-container">
       <div className="header">TODO - ITEMS</div>
       <div className="tasks">
         {tasks.map((task, index) => (
           <Task task={task} index={index} key={index} />
         ))}
+      </div>
+      <div className="create-task">
+        <CreateTask addTask={addTask} />
       </div>
     </div>
   );
